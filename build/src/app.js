@@ -17,13 +17,13 @@ const express_1 = __importDefault(require("express"));
 const index_1 = __importDefault(require("./routes/index"));
 const body_parser_1 = __importDefault(require("body-parser"));
 const handleErrors_1 = require("./middleware/handleErrors");
-const cors = require("cors");
-const cookieParser = require("cookie-parser");
-const morgan = require("morgan");
-require("dotenv").config();
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+const morgan = require('morgan');
+require('dotenv').config();
 /* import Stripe from 'stripe'; */
 const STRIPE_TOKEN = process.env.STRIPE_TOKEN;
-const stripe = require("stripe")(STRIPE_TOKEN);
+const stripe = require('stripe')(STRIPE_TOKEN);
 /* stripe(STRIPE_TOKEN) */
 require('./db');
 const server = (0, express_1.default)();
@@ -41,12 +41,12 @@ const server = (0, express_1.default)();
 //   next();
 // }
 // server.name = 'API';
-server.use(body_parser_1.default.urlencoded({ extended: true, limit: "50mb" }));
-server.use(body_parser_1.default.json({ limit: "50mb" }));
+server.use(body_parser_1.default.urlencoded({ extended: true, limit: '50mb' }));
+server.use(body_parser_1.default.json({ limit: '50mb' }));
 server.use(cookieParser());
-server.use(morgan("dev"));
+server.use(morgan('dev'));
 //server.use(allowCors)
-server.use(cors({ credentials: true, origin: "http://localhost:3000", methods: ["GET", "PUT", "POST", "PATCH", "DELETE"] }));
+server.use(cors({ credentials: true, origin: '*', methods: ['GET', 'PUT', 'POST', 'PATCH', 'DELETE'] }));
 // server.use((_req: Request, res: Response, next: NextFunction) => {
 //   res.header('Access-Control-Allow-Origin', '*'); // update to match the domain you will make the request from
 //   res.header('Access-Control-Allow-Credentials', 'true');
@@ -61,11 +61,11 @@ server.post('/api/checkout', (req, res) => __awaiter(void 0, void 0, void 0, fun
         const { id, amount } = req.body;
         /* const monto=200; */
         const paymentIntent = yield stripe.paymentIntents.create({
-            currency: "USD",
-            description: "console",
+            currency: 'USD',
+            description: 'console',
             payment_method: id,
             confirm: true,
-            amount
+            amount,
         });
         console.log(req.body);
         console.log(paymentIntent);
