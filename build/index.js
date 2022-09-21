@@ -35,15 +35,18 @@ const db_1 = require("./src/db");
 const PORT = process.env.PORT || 3001;
 app_1.default.listen(PORT, () => {
     console.log(`App runing at http://localhost:${PORT}`);
-    db_1.sequelize.authenticate().then(() => __awaiter(void 0, void 0, void 0, function* () {
-        console.log("Database conected");
+    db_1.sequelize
+        .authenticate()
+        .then(() => __awaiter(void 0, void 0, void 0, function* () {
+        console.log('Database conected');
         try {
             yield db_1.sequelize.sync({ alter: true }); //alter or force
         }
         catch (error) {
             console.log(error.message);
         }
-    })).catch((e) => {
+    }))
+        .catch((e) => {
         console.log(e.message);
     });
 });
