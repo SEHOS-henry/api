@@ -7,8 +7,9 @@
     "dev2": "ts-node-dev app2.ts",
     "start": "node build/index.js",
     "dev": "ts-node-dev index.ts",
-    "tsc": "tsc",
-    "test": "mocha -w ./tests/**/*.spec.js"
+    "build": "tsc",
+    "test": "mocha -w ./tests/**/*.spec.js",
+    "postinstall": "npm run build"
   },
   "author": "Jesner Ramirez, Gabriel Uzzante, Facundo Juliá, Joel Orzet, Ignacio Dalla Rizza, Andres Fabian Parra Sanchez, Rodrigo Ruiz",
   "license": "Sin Licencia",
