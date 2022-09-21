@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev2": "ts-node-dev app2.ts",
-    "start": "node index.js",
+    "start": "node build/index.js",
     "dev": "ts-node-dev index.ts",
     "tsc": "tsc",
     "test": "mocha -w ./tests/**/*.spec.js"
