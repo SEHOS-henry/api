@@ -1,5 +1,5 @@
 require('dotenv').config();
-import { Sequelize } from 'sequelize';
+import { Sequelize } from 'sequelize-typescript';
 
 var configSequelize = {
 	logging: false, // set to console.log to see the raw SQL queries
