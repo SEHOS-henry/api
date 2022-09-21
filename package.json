@@ -10,7 +10,7 @@
     "tsc": "tsc",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
-  "author": "Jesner Ramirez, Gabriel Uzzante, Facundo Juliá",
+  "author": "Jesner Ramirez, Gabriel Uzzante, Facundo Juliá, Joel Orzet, Ignacio Dalla Rizza, Andres Fabian Parra Sanchez, Rodrigo Ruiz",
   "license": "Sin Licencia",
   "engines": {
     "node": ">=16.14.2",
