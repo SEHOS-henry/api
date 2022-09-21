@@ -38,7 +38,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const orders_details = __importStar(require("../controllers/Orders_details"));
 const router = express_1.default.Router();
-router.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/', (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const details = yield orders_details.getOrders_details();
         if (details)
@@ -48,7 +48,7 @@ router.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(400).json({ error: error.message });
     }
 }));
-router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.post('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const newOrders_details = orders_details.toNewOrder_Detail(req.body);
         const result = yield orders_details.createOrder_detail(newOrders_details);
@@ -58,7 +58,7 @@ router.post("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(400).json({ error: error.message });
     }
 }));
-router.put("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.put('/', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         /* const updateOrders_details: any = orders_details.toUpdateOrder_Detail(req.body) */
         const updateOrders_details = yield orders_details.updateOrder_Detail(req.body);
@@ -68,16 +68,15 @@ router.put("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         res.status(400).json({ error: error.message });
     }
 }));
-router.get("/:orderId", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+router.get('/:orderId', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const detail = yield orders_details.getOrderDetail(req.params.orderId);
         if (detail)
-            return res.send(detail);
+            res.send(detail);
     }
     catch (error) {
-        return res.json(error);
+        res.json(error);
     }
-    return;
 }));
 // El order_Detail nunca se eliminar de la base de datos.
 /* router.delete('/:id', async (req, res) => {

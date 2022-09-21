@@ -3,7 +3,7 @@ var _a;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Orders_details = exports.Category = exports.Cart_details = exports.Images = exports.Orders = exports.Reviews = exports.Products = exports.Product_details = exports.Users = exports.Address = exports.Sizes = exports.Carrousel = exports.Color = exports.Product_details_size = exports.sequelize = void 0;
 require('dotenv').config();
-const sequelize_1 = require("sequelize");
+const sequelize_typescript_1 = require("sequelize-typescript");
 var configSequelize = {
     logging: false,
     native: false,
@@ -17,7 +17,7 @@ var configSequelize = {
         },
     },
 };
-exports.sequelize = new sequelize_1.Sequelize(String(process.env.DATABASE_URL), configSequelize);
+exports.sequelize = new sequelize_typescript_1.Sequelize(String(process.env.DATABASE_URL), configSequelize);
 _a = exports.sequelize.models, exports.Product_details_size = _a.Product_details_size, exports.Color = _a.Color, exports.Carrousel = _a.Carrousel, exports.Sizes = _a.Sizes, exports.Address = _a.Address, exports.Users = _a.Users, exports.Product_details = _a.Product_details, exports.Products = _a.Products, exports.Reviews = _a.Reviews, exports.Orders = _a.Orders, exports.Images = _a.Images, exports.Cart_details = _a.Cart_details, exports.Category = _a.Category, exports.Orders_details = _a.Orders_details;
 exports.Users.hasMany(exports.Address, { foreignKey: 'id_user' });
 exports.Address.belongsTo(exports.Users, { foreignKey: 'id_user' }); //!

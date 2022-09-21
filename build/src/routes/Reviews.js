@@ -15,7 +15,7 @@ const Reviews_1 = require("../controllers/Reviews");
 const userExtractor_1 = require("../middleware/userExtractor");
 const Reviews_2 = require("../validators/Reviews");
 const Reviews = (0, express_1.Router)();
-Reviews.get("/product/:id_product", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+Reviews.get('/product/:id_product', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id_product } = req.params;
         const reviewsDB = yield (0, Reviews_1.getReviewsProduct)(parseInt(id_product));
@@ -25,7 +25,7 @@ Reviews.get("/product/:id_product", (req, res) => __awaiter(void 0, void 0, void
         return res.status(500).json(error);
     }
 }));
-Reviews.get("/user/:id_user", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+Reviews.get('/user/:id_user', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id_user } = req.params;
         const result = yield (0, Reviews_1.getReviewsUser)(parseInt(id_user));
@@ -35,7 +35,7 @@ Reviews.get("/user/:id_user", (req, res) => __awaiter(void 0, void 0, void 0, fu
         return res.status(500).json(error);
     }
 }));
-Reviews.post("/", userExtractor_1.userExtractorUser, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+Reviews.post('/', userExtractor_1.userExtractorUser, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         req.body.rate = Number(req.body.rate);
         req.body.id_product = Number(req.body.id_product);
@@ -49,7 +49,7 @@ Reviews.post("/", userExtractor_1.userExtractorUser, (req, res) => __awaiter(voi
     }
     return;
 }));
-Reviews.delete("/", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+Reviews.delete('/', (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { id_user, id_product } = req.body;
         const response = yield (0, Reviews_1.deleteReview)(id_user, id_product);
